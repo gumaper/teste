@@ -1,1 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --blue: rgb(0, 30, 64);
+
+  --yellow: rgb(255, 200, 1);
+}
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.blue__bg {
+  background-color: var(--blue);
+}
+
+.yellow {
+  color: var(--yellow);
+}
+
+.yellow__bg {
+  background-color: var(--yellow);
+}
+
+.white {
+  color: #fff;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
