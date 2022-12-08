@@ -44,11 +44,22 @@
       >
         Imprimir lamina
       </button>
+
+      <button
+        mat-raised-button
+        [color]="'primary'"
+        class="d-flex justify-content-center mb-4 mt-4 pl-4 pr-4"
+        style="min-width: 250px"
+        (click)="abrirFiles()"
+      >
+        Escolher imagem
+      </button>
     </div>
+
+    <!-- (click)="abrirFiles()" -->
   </div>
 
   <div
-    (click)="abrirFiles()"
     style="
       border: 1px solid;
       overflow: auto;
@@ -66,6 +77,8 @@
         width: 1080px;
         position: relative;
         background-color: #fff;
+        background-position: center;
+        background-repeat: no-repeat;
       "
       class="lamina__wrapper m-0"
       id="story"
@@ -73,11 +86,36 @@
       for="fileFeed"
       [ngStyle]="{ 'background-image': bgImage ? 'url(' + bgImage + ')' : '' }"
     >
-      <div
-        *ngIf="bgImage"
-        class="controls text-center position-absolute width-100 d-flex justify-content-between p-16"
-        style="top: 50%; transform: translateY(-50%); z-index: 5"
-      ></div>
+      <div class="controls text-center position-absolute width-100 p-16">
+        <div>
+          <button
+            class="btn btn-primary mr-16"
+            (click)="setPositionY('story', 'menos')"
+          >
+            <i class="fas fa-arrow-up"></i>
+          </button>
+        </div>
+
+        <div class="d-flex justify-content-around w-100">
+          <button
+            class="btn btn-primary mr-16"
+            (click)="setPosition('story', 'menos')"
+          >
+            <i class="fas fa-arrow-left"></i>
+          </button>
+
+          <button
+            class="btn btn-primary"
+            (click)="setPosition('story', 'mais')"
+          >
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <button class="btn btn-primary" (click)="setPositionY('story', 'mais')">
+          <i class="fas fa-arrow-down"></i>
+        </button>
+      </div>
 
       <div class="h-100 position-relative">
         <div class="title">
@@ -88,29 +126,38 @@
           >
             {{ cidade.value }}
           </div>
-        </div>
 
-        <div
-          class="title--sub white"
-          style="text-transform: uppercase"
-          [ngStyle]="{ 'font-size': fontSizeSubTitulo }"
-        >
-          {{ subTitulo.value }}
-        </div>
+          <div
+            class="title--sub white"
+            style="text-transform: uppercase"
+            [ngStyle]="{ 'font-size': fontSizeSubTitulo }"
+          >
+            {{ subTitulo.value }}
+          </div>
 
-        <div
-          class="data"
-          style="text-transform: uppercase"
-          [ngStyle]="{ 'font-size': fontSizeData }"
-        >
-          {{ data.value }}
+          <div
+            class="data"
+            style="text-transform: uppercase"
+            [ngStyle]="{ 'font-size': fontSizeData }"
+          >
+            {{ data.value }}
+          </div>
         </div>
 
         <div class="total" style="text-transform: uppercase">
           {{ valor.value }}
         </div>
 
-        <img class="card-img" src="./assets/images/card-principal.png" alt="" />
+        <img
+          class="card-img"
+          src="./assets/images/card-principal-2.png"
+          alt=""
+        />
+
+        <div class="origem">
+          <p>VÔO SAINDO DE</p>
+          <h4>CAMPO GRANDE (MS)</h4>
+        </div>
 
         <!-- BOTTOM -->
         <div class="bottom white pt-3">

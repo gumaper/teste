@@ -24,6 +24,11 @@ export class AppComponent implements OnInit {
   fontSizeSubTitulo: string = '';
   fontSizeData: string = '';
 
+  position = 50;
+  positionStory = 50;
+
+  positionStoryY = 50;
+
   constructor(private _formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -31,6 +36,28 @@ export class AppComponent implements OnInit {
       '7 NOITES DE HOSPEDAGEM COM CAFÉ DA MANHÃ\nPREÇO POR PESSOA EM APARTAMENTO DUPLO\nTAXAS INCLUSAS\nSUJEIRO A ALTERAÇÃO DE PREÇO SEM AVISO PRÉVIO\nPASSAGEM AÉREA IDA E VOLTA\nVIAGEM NACIONAL\nTRANSLADO DO AEROPORTO P/HOTEL\nVISITA Á CIDADE E CUMBUCO';
 
     this.textBox.setValue(value);
+  }
+
+  setPosition(element: string, type: string) {
+    type === 'mais'
+      ? (this.positionStory = this.positionStory - 5)
+      : (this.positionStory = this.positionStory + 5);
+
+    let story: any = document.getElementById('story');
+
+    story.style.backgroundPosition =
+      this.positionStory + '% ' + ' ' + this.positionStoryY + '%';
+  }
+
+  setPositionY(element: string, type: string) {
+    type === 'mais'
+      ? (this.positionStoryY = this.positionStoryY - 5)
+      : (this.positionStoryY = this.positionStoryY + 5);
+
+    let story: any = document.getElementById('story');
+
+    story.style.backgroundPosition =
+      this.positionStory + '%' + ' ' + this.positionStoryY + '%';
   }
 
   abrirFiles() {
